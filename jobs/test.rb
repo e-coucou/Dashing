@@ -18,7 +18,12 @@ SCHEDULER.every '2s' do
 	value = ws[3, 2].to_f
 	value_min = ws[3, 3].to_f
 	value_max = ws[3, 4].to_f
+	
+	# information sur fournisseurs
+	nb_fournisseur = ws[4,2].to_f
+	nb_fournisseur_target = ws[4,3].to_f
 
 	send_event('valuation', { current: current_valuation, last: last_valuation })
+	send_event('fournisseur', { current: nb_fournisseur, last: nb_fournisseur_target })
 	send_event('gain', { value: value, min: value_min, max: value_max })
 end
