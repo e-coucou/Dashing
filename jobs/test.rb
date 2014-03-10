@@ -25,10 +25,12 @@ SCHEDULER.every '2s' do
 	nb_fournisseur = ws[3,14].to_f
 	nb_fournisseur_target = ws[2,14].to_f
 
+	# information sur fournisseurs
+	reclamation = ws[21,2].to_f
+	reclamation_target = ws[21,4].to_f
+
 	send_event('valuation', { current: current_valuation, last: last_valuation })
 	send_event('fournisseur', { current: nb_fournisseur, last: nb_fournisseur_target })
 	send_event('gain', { value: value, min: value_min, max: value_max })
-	
-	# Send bargraphe
-	send_event('bargraph', {	max: 100,	value: 32	})
+	send_event('bargraph', {	max: reclamation_target,	value: reclamation	})
 end
