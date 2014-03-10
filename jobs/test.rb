@@ -30,5 +30,5 @@ SCHEDULER.every '2s' do
 	send_event('gain', { value: value, min: value_min, max: value_max })
 	
 	# Send bargraphe
-	send_event('redis_used_memory', {	max: 100,	value: 32	})
+	send_event('bargraph', {	max: 100,	value: 32	})
 end
