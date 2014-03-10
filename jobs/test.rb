@@ -28,4 +28,7 @@ SCHEDULER.every '2s' do
 	send_event('valuation', { current: current_valuation, last: last_valuation })
 	send_event('fournisseur', { current: nb_fournisseur, last: nb_fournisseur_target })
 	send_event('gain', { value: value, min: value_min, max: value_max })
+	
+	# Send bargraphe
+	send_event('redis_used_memory', {	max: 100,	value: 32	})
 end
