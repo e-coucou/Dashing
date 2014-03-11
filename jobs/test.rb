@@ -31,7 +31,7 @@ SCHEDULER.every '2s' do
 	# information sur fournisseurs
 	reclamation = ws[21,2].to_f
 	reclamation_target = ws[21,4].to_f
-	progress_items = {:name => "OPex", :progress=> 24},{:name => "CaPex", :progress => 34}
+	progress_items = [{name: "OPex", value: 24},{name: "CaPex", value: 34}]
 
 	send_event('valuation', { current: current_valuation, last: last_valuation, moreinfo: dateMAJ })
 	send_event('fournisseur', { current: nb_fournisseur, last: nb_fournisseur_target })
