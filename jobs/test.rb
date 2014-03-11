@@ -37,5 +37,5 @@ SCHEDULER.every '2s' do
 	send_event('gainO', { value: valueGO, min: value_min, max: value_max_O , moreinfo: "cible : "+value_max_O })
 	send_event('gainC', { value: valueGC, min: value_min, max: value_max_C })
 	send_event('bargraph', {	max: reclamation_target,	value: reclamation	})
-	send_event( 'progress_bars', {title: "Opex", progress_items: [{name: "Opex", progress: valueGO/value_max_O}]} )
+	send_event( 'progress_bars', {title: "Opex", progress_items: [{name: "OPex", progress: 24},{name: "CaPex", progress: 34}]} )
 end
