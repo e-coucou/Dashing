@@ -11,7 +11,7 @@ SCHEDULER.every '2s' do
 	# You can also use OAuth. See document of
 	# GoogleDrive.login_with_oauth for details.
 	
-	session = GoogleDrive.login("eric@plaidy.net", "Ricky03!")
+	session = GoogleDrive.login("automate@e-coucou.com", "Penelope75!")
 #	ws = session.spreadsheet_by_key("0AkHkekTTsBL0dGJ5Ty14YjRud2VBbHhDMXd2UGZPVlE").worksheets[0]
 	ws = session.spreadsheet_by_key(key).worksheets[0]
 
@@ -30,13 +30,13 @@ SCHEDULER.every '2s' do
 
 	# information sur fournisseurs
 	reclamation = ws[21,2].to_f
+	reclamation_open = ws[22,2].to_f
 	reclamation_target = ws[21,4].to_f
-	progress_items = [{name: "OPex", value: 24},{name: "CaPex", value: 34}]
+	progress_items = [{name: "OPex "+(valueGO/1000).to_s+"k€", progress: valueGO/value_max_O*100},{name: "CaPex "+(valueGC/1000).to_s+"k€", progress: valueGC/value_max_C*100}]
 
-	send_event('valuation', { current: current_valuation, last: last_valuation, moreinfo: dateMAJ })
-	send_event('fournisseur', { current: nb_fournisseur, last: nb_fournisseur_target })
-	send_event('gainO', { value: valueGO, min: value_min, max: value_max_O , moreinfo: "cible : " })
-	send_event('gainC', { value: valueGC, min: value_min, max: value_max_C })
+	send_event('valuation', { current: current_valuation, moreinfo: dateMAJ })
+	send_event('fournisseur', { current: nb_fournisseur, moreinfo: "target maxi : "+nb_fournisseur_target.to_s })
+	send_event('gainC', { value: reclamation_open, min: 0, max: 10 , moreinfo: "cible : 10 encours max" })
 	send_event('bargraph', {	max: reclamation_target,	value: reclamation	})
-	send_event('progress_bars', {title: "Opex", progress_items: progress_items[] } )
+	send_event('progress_bars', {title: "Gains Achats", progress_items: progress_items } )
 end
