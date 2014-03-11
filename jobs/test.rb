@@ -32,7 +32,7 @@ SCHEDULER.every '2s' do
 	reclamation = ws[21,2].to_f
 	reclamation_target = ws[21,4].to_f
 
-	send_event('valuation', { current: current_valuation, last: last_valuation, updatedAtMessage: dateMAJ })
+	send_event('valuation', { current: current_valuation, last: last_valuation })
 	send_event('fournisseur', { current: nb_fournisseur, last: nb_fournisseur_target })
 	send_event('gainO', { value: valueGO, min: value_min, max: value_max_O })
 	send_event('gainC', { value: valueGC, min: value_min, max: value_max_C })
