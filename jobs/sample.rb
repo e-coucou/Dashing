@@ -25,6 +25,6 @@ SCHEDULER.every '5s' do
 
 	send_event('e-CNumber', { current: current, last: last, moreinfo: moreinfo, title: new_title, suffix: suffix })
 	send_event('synergy',   { value: rand(100) })
-	send_event('e-CUsageGauge', {	max: g_max,	value: value, title: g_new_title, moreinfo: g_moreinfo	})
+	send_event('e-CUsageGauge', {	max: g_max,	value: g_value, title: g_new_title, moreinfo: g_moreinfo	})
 
 end
