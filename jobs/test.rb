@@ -37,7 +37,7 @@ SCHEDULER.every '2s' do
 	send_event('valuation', { current: current_valuation, moreinfo: dateMAJ })
 	send_event('fournisseur', { current: nb_fournisseur, moreinfo: "target maxi : "+nb_fournisseur_target.to_s })
 	send_event('gainC', { value: reclamation_open, min: 0, max: 10 , moreinfo: "cible : 10 encours max" })
-	send_event('active_claim', { value: reclamation_open, min: 0, max: 10 , moreinfo: "cible : 10 encours max" })
+	send_event('active_claim', { current: reclamation_open, moreinfo: "cible : 10 encours max" })
 	send_event('bargraph', {	max: reclamation_target,	value: reclamation	})
 	send_event('progress_bars', {title: "Gains Achats", progress_items: progress_items } )
 end
