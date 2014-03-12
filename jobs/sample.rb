@@ -16,7 +16,7 @@ SCHEDULER.every '5s' do
 	moreinfo = ws[3, 5].to_s # 3:E
 	new_title = ws[3, 4].to_s # 3:D
 	suffix = ws[3, 6].to_s # 3:F
-	prefix = ws[3, 6].to_s # 3:F
+	prefix = ws[3, 7].to_s # 3:G
 	# -----
 	g_value = ws[4, 2].to_f # 4:B
 	g_max    = ws[4, 3].to_f # 4:C
