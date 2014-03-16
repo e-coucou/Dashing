@@ -17,7 +17,7 @@ SCHEDULER.every '2s' do
 	c_NO2 = ws[1, 7].to_f		# l/c
 
 #	send_event('ap-val', { current: c_PM10, moreinfo: date+" "+heure })
-	send_event('ap-fo', { title: lieu, moreinfo: 'BASCH',moreinfo: date+" "+heure })
-	send_event('ap-circle', { value: c_PM10, min: 0, max: 150, moreinfo: "max : 150", title: "Particule PM10" })
+	send_event('ap-fo', { title: lieu+"   Maj "+date+" "+heure, moreinfo: 'BASCH' })
+	send_event('ap-circle', { value: c_PM10, min: 0, max: 150, moreinfo: "max : 150", title: "Particules PM10" })
 	send_event('ap-bg', {	max: 100,	value: c_NO2, title: "Dioxyde d'Azote"	})
 end
