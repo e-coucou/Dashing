@@ -3,7 +3,6 @@ require "roo"
 require "google_drive"
 
 current_valuation = 0
-#key = "0AkHkekTTsBL0dGJ5Ty14YjRud2VBbHhDMXd2UGZPVlE"
 key = "0AsWa_wvrz5AndDBHVS1BbXU1MVJpVDE2VDk3akNJOWc"
 
 SCHEDULER.every '2s' do
@@ -11,8 +10,6 @@ SCHEDULER.every '2s' do
 	# You can also use OAuth. See document of
 	# GoogleDrive.login_with_oauth for details.
 	
-	session = GoogleDrive.login("automate@e-coucou.com", "Penelope75!")
-#	ws = session.spreadsheet_by_key("0AkHkekTTsBL0dGJ5Ty14YjRud2VBbHhDMXd2UGZPVlE").worksheets[0]
 	ws = session.spreadsheet_by_key(key).worksheets[0]
 
     current_valuation = ws[16, 2].to_f   # cellule ligne 1  / colonne 2
