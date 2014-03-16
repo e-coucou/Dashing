@@ -8,7 +8,7 @@ key = "0AsWa_wvrz5AndDBHVS1BbXU1MVJpVDE2VDk3akNJOWc"
 SCHEDULER.every '2s' do
 	# Logs in.	
 	session = GoogleDrive.login("automate@e-coucou.com", "Penelope75!")
-	ws = session.spreadsheet_by_key(key).worksheets[0]
+	ws = session.spreadsheet_by_key(key).worksheets[1]
 
 #p  Lieu = ws[1, 2].to_f   # cellule ligne 1  / colonne 2
 #p	Date = ws[1, 3].to_f		# l/c
